@@ -5,9 +5,7 @@ const port = 3000,
     httpStatus = require("http-status-codes"),
     router = require("./router"),
     contentTypes = require("./contentTypes"),
-    utils = require("./utils")
-;
-
+    utils = require("./utils");
 // Pages html
 
 router.get("/", (req, res) => {
@@ -25,50 +23,28 @@ router.get("/contact.html", (req, res) => {
     utils.getFile("views/contact.html", res);
 });
 
-router.get("/thanks.html", (req, res) => {
-    res.writeHead(httpStatus.OK, contentTypes.html);
-    utils.getFile("views/thanks.html", res);
-});
-
 // Fichiers images
 
-router.get("/graph.png", (req, res) => {
+router.get("/uvs.png", (req, res) => {
     res.writeHead(httpStatus.OK, contentTypes.png);
-    utils.getFile("views/graph.png", res);
+    utils.getFile("public/img/uvs.png", res);
 });
 
-router.get("/people.jpg", (req, res) => {
+router.get("/hardway.jpg", (req, res) => {
     res.writeHead(httpStatus.OK, contentTypes.jpg);
-    utils.getFile("views/people.jpg", res);
+    utils.getFile("public/img/hardway.jpg", res);
 });
 
-router.get("/cat.jpg", (req, res) => {
-    res.writeHead(httpStatus.OK, contentTypes.jpg);
-    utils.getFile("views/cat.jpg", res);
+router.get("/bluetooth.png", (req, res) => {
+    res.writeHead(httpStatus.OK, contentTypes.png);
+    utils.getFile("public/img/bluetooth.png", res);
 });
 
-router.get("/product.jpg", (req, res) => {
-    res.writeHead(httpStatus.OK, contentTypes.jpg);
-    utils.getFile("views/cat.jpg", res);
-});
-
-// Fichiers de style
+// Fichier de style
 
 router.get("/localStyle.css", (req, res) => {
     res.writeHead(httpStatus.OK, contentTypes.css);
-    utils.getFile("views/localStyle.css", res);
-});
-
-router.get("/bootstrap.css", (req, res) => {
-    res.writeHead(httpStatus.OK, contentTypes.css);
-    utils.getFile("views/bootstrap.css", res);
-});
-
-// Fichiers js
-
-router.get("/localStyle.js", (req, res) => {
-    res.writeHead(httpStatus.OK, contentTypes.js);
-    utils.getFile("views/localStyle.js", res);
+    utils.getFile("public/css/localStyle.css", res);
 });
 
 // Creation du serveur
